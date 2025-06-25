@@ -15,10 +15,11 @@ Bloggua adalah sistem blog PHP lengkap dengan database MySQL dan desain modern m
 
 ### Technology Stack
 - PHP 8.2 (bahasa backend utama)
-- MySQL (database dengan koneksi PDO)
+- MySQL (database eksklusif dengan koneksi PDO)
 - Tailwind CSS via CDN (styling modern)
 - HTML5/CSS3/JavaScript (frontend)
 - Security: PDO prepared statements, password hashing, session management
+- Deployment: XAMPP/LAMP lokal saja (tidak ada PostgreSQL/SQLite)
 
 ## Key Components
 
@@ -115,12 +116,13 @@ Changelog:
 Preferred communication style: Simple, everyday language.
 Project requirements: 
 - PHP dan MySQL saja untuk komputer lokal (XAMPP/LAMP)
+- TIDAK menggunakan PostgreSQL atau SQLite
 - Desain tidak kaku dan kuno, harus modern elegant profesional
 - Gunakan Tailwind CSS via CDN
 - Semua komentar kode dalam bahasa Indonesia
 - Penamaan file menggunakan bahasa Indonesia
 - Tampilan website modern dan profesional
-- Tidak butuh demo Replit, fokus deployment lokal saja
+- Deployment lokal XAMPP/LAMP saja, tidak ada cloud/Replit
 ```
 
 ## Development Notes
@@ -154,4 +156,5 @@ Project requirements:
 - **Modern Design**: Menggunakan Tailwind CSS untuk tampilan yang tidak kaku dan profesional  
 - **Indonesian Naming**: Semua file dan komentar menggunakan bahasa Indonesia sesuai permintaan
 - **Database Name**: Menggunakan nama database "db_blog" untuk deployment MySQL lokal
-- **Pure MySQL**: Hanya menggunakan MySQL, tidak ada SQLite atau database lainnya
+- **Pure MySQL**: Hanya menggunakan MySQL, tidak ada PostgreSQL, SQLite atau database lainnya
+- **Local Only**: Sistem dirancang khusus untuk XAMPP/LAMP lokal tanpa cloud dependency
