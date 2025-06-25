@@ -2,9 +2,10 @@
 // Halaman detail artikel dengan sistem komentar
 // Menampilkan konten lengkap artikel dan form komentar
 
-require_once 'config/database.php';
+require_once 'config/database_demo.php';
 require_once 'models/Post.php';
 require_once 'models/Comment.php';
+require_once 'models/Analytics.php';
 require_once 'includes/functions.php';
 
 $slug = isset($_GET['slug']) ? sanitizeInput($_GET['slug']) : '';
@@ -16,8 +17,16 @@ if (empty($slug)) {
 
 $modelPost = new Post();
 $modelKomentar = new Comment();
+$analytics = new Analytics();
 
 $artikel = $modelPost->getPostBySlug($slug);
+
+if ($artikel) {
+    // Record view untuk analytics
+    $ipAddress = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? 'unknown';
+    $analytics->recordPostView($artikel['id'], $ipAddress, $userAgent);
+}
 
 if (!$artikel) {
     header('HTTP/1.0 404 Not Found');

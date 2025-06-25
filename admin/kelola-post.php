@@ -5,11 +5,13 @@
 require_once '../config/session.php';
 requireLogin();
 
-require_once '../config/database.php';
+require_once '../config/database_demo.php';
 require_once '../models/Post.php';
+require_once '../models/Analytics.php';
 require_once '../includes/functions.php';
 
 $modelPost = new Post();
+$analytics = new Analytics();
 
 // Proses hapus post
 if (isset($_GET['aksi']) && $_GET['aksi'] === 'hapus' && isset($_GET['id'])) {

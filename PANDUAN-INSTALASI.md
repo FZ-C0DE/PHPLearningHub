@@ -12,6 +12,8 @@ Bloggua adalah sistem blog modern dengan desain merah putih yang elegant dan pro
 - ✅ Upload gambar dengan validasi keamanan
 - ✅ Pencarian artikel real-time
 - ✅ Pagination yang smooth
+- ✅ Dashboard statistik dengan grafik interaktif
+- ✅ Analytics views artikel dan tracking pengunjung
 - ✅ Responsive design untuk semua perangkat
 - ✅ Keamanan tinggi dengan prepared statements
 - ✅ Session management dengan auto-logout
@@ -84,6 +86,7 @@ bloggua/
 │   ├── edit-post.php       # Form edit post
 │   ├── kelola-kategori.php # Manajemen kategori
 │   ├── moderasi-komentar.php # Moderasi komentar
+│   ├── statistik.php      # Dashboard analytics interaktif
 │   └── includes/           # Komponen admin
 ├── config/                 # Konfigurasi sistem
 │   ├── database.php        # Koneksi database MySQL
@@ -91,7 +94,8 @@ bloggua/
 ├── models/                 # Model database
 │   ├── Post.php           # Model post/artikel
 │   ├── Category.php       # Model kategori  
-│   └── Comment.php        # Model komentar
+│   ├── Comment.php        # Model komentar
+│   └── Analytics.php      # Model analytics dan statistik
 ├── includes/              # Fungsi helper
 │   └── functions.php      # Utility functions
 ├── assets/               # Asset files

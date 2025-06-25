@@ -5,7 +5,7 @@
 require_once '../config/session.php';
 requireLogin();
 
-require_once '../config/database.php';
+require_once '../config/database_demo.php';
 require_once '../models/Post.php';
 require_once '../models/Category.php';
 require_once '../models/Comment.php';
