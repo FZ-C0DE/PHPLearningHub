@@ -2,7 +2,7 @@
 // Halaman login admin dengan desain modern
 // Proses autentikasi untuk masuk ke panel admin
 
-require_once '../config/session.php';
+session_start();
 require_once '../config/database.php';
 require_once '../includes/functions.php';
 
