@@ -2,12 +2,12 @@
 
 ## Instalasi di XAMPP/LAMP
 
-### 1. Persiapan Database MySQL
+### 1. Persiapan Database
 - Pastikan XAMPP/LAMP sudah terinstall dan MySQL berjalan
 - Buka phpMyAdmin di browser: `http://localhost/phpmyadmin`
 - Buat database baru dengan nama: `db_blog`
 - Import file `database/schema.sql` ke database `db_blog`
-- HANYA gunakan MySQL, tidak ada PostgreSQL atau SQLite
+
 
 ### 2. Konfigurasi Database
 - Edit file `config/database.php`
@@ -94,7 +94,7 @@ Jika mengalami error 404 pada halaman admin:
 2. Verifikasi kredensial database di `config/database.php`
 3. Pastikan database `db_blog` sudah dibuat
 4. Import database/schema.sql ke phpMyAdmin
-5. Pastikan tidak ada file PostgreSQL/SQLite yang mengganggu
+
 
 ### Slider Tidak Muncul
 1. Periksa tabel `sliders` sudah dibuat
@@ -107,4 +107,3 @@ Jika mengalami error 404 pada halaman admin:
 - Desain responsif modern dengan Tailwind CSS
 - Kompatibel dengan PHP 8.2 dan MySQL 8.0
 - KHUSUS untuk deployment XAMPP/LAMP lokal
-- Tidak menggunakan PostgreSQL, SQLite, atau cloud database
