@@ -1,0 +1,9 @@
+# Security for uploads directory
+<Files "*.php">
+    Deny from all
+</Files>
+
+# Allow only image files
+<FilesMatch "\.(jpg|jpeg|png|gif)$">
+    Allow from all
+</FilesMatch>
