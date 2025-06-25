@@ -34,7 +34,7 @@ Bloggua adalah sistem blog modern dengan desain merah putih yang elegant dan pro
 ### 2. Setup Database MySQL
 ```sql
 -- Buat database baru
-CREATE DATABASE bloggua CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE db_blog CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Import schema database
 -- Gunakan file database/schema.sql
@@ -46,7 +46,7 @@ Edit file `config/database.php`:
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');          // Username MySQL Anda
 define('DB_PASS', '');              // Password MySQL Anda  
-define('DB_NAME', 'bloggua');
+define('DB_NAME', 'db_blog');
 ```
 
 ### 4. Set Permissions
@@ -59,7 +59,7 @@ chmod 755 uploads/
 ### 5. Import Database Schema
 - Buka phpMyAdmin atau MySQL command line
 - Import file `database/schema.sql`
-- Atau jalankan: `mysql -u root -p bloggua < database/schema.sql`
+- Atau jalankan: `mysql -u root -p db_blog < database/schema.sql`
 
 ### 6. Akses Website
 - **Blog Utama**: `http://localhost/bloggua/beranda.php`
@@ -185,7 +185,7 @@ Database sudah include data sample:
 ### Error Koneksi Database
 - Pastikan MySQL service berjalan
 - Cek kredensial di `config/database.php`
-- Pastikan database `bloggua` sudah dibuat
+- Pastikan database `db_blog` sudah dibuat
 
 ### Upload Gambar Gagal  
 - Cek permission folder `uploads/` (755)

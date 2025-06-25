@@ -36,8 +36,8 @@ try {
     
     echo "Database schema created successfully.<br>";
     echo "Default admin user created: username = 'admin', password = 'password'<br>";
-    echo "<a href='../admin/login.php'>Go to Admin Login</a><br>";
-    echo "<a href='../'>Go to Blog</a>";
+    echo "<a href='../admin/masuk.php'>Go to Admin Login</a><br>";
+    echo "<a href='../beranda.php'>Go to Blog</a>";
     
 } catch (PDOException $e) {
     die("Database setup failed: " . $e->getMessage());

@@ -1,7 +1,7 @@
 -- Bloggua Database Schema
--- Create database first: CREATE DATABASE bloggua;
+-- Create database first: CREATE DATABASE db_blog;
 
-USE bloggua;
+USE db_blog;
 
 -- Categories table
 CREATE TABLE categories (

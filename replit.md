@@ -134,3 +134,4 @@ Project requirements:
 - **Local Deployment**: Dioptimalkan untuk lingkungan komputer lokal pengguna
 - **Modern Design**: Menggunakan Tailwind CSS untuk tampilan yang tidak kaku dan profesional
 - **Indonesian Naming**: Semua file dan komentar menggunakan bahasa Indonesia sesuai permintaan
+- **Database Name**: Menggunakan nama database "db_blog" untuk deployment MySQL lokal

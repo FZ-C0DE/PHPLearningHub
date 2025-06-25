@@ -2,7 +2,7 @@
 // Halaman beranda utama blog Bloggua
 // Menampilkan daftar artikel dengan fitur pencarian dan pagination
 
-require_once 'config/database_demo.php';
+require_once 'config/database.php';
 require_once 'models/Post.php';
 require_once 'models/Category.php';
 require_once 'includes/functions.php';
