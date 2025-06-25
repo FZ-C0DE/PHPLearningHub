@@ -2,7 +2,7 @@
 // Halaman beranda utama blog Bloggua
 // Menampilkan daftar artikel dengan fitur pencarian dan pagination
 
-require_once 'config/database_demo.php';
+require_once 'config/database_auto.php';
 require_once 'models/Post.php';
 require_once 'models/Category.php';
 require_once 'includes/functions.php';
@@ -63,17 +63,28 @@ $kategoriList = $modelKategori->getAllCategories();
                 <a href="/beranda.php" class="text-3xl font-bold text-white hover:text-red-100 transition-colors">
                     Bloggua
                 </a>
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="/beranda.php" class="text-white hover:text-red-100 transition-colors font-medium">Beranda</a>
                     <a href="/admin/masuk.php" class="bg-white text-merah-utama px-6 py-2 rounded-full font-semibold hover:bg-red-50 transition-all transform hover:scale-105">
                         Admin
                     </a>
                 </div>
-                <button class="md:hidden text-white">
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-white hover:text-red-100 transition-colors">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
+            </nav>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden bg-merah-gelap mt-4 rounded-lg overflow-hidden">
+                <div class="px-4 py-3 space-y-2">
+                    <a href="/beranda.php" class="block text-white hover:bg-red-700 px-4 py-2 rounded transition-colors">Beranda</a>
+                    <a href="/admin/masuk.php" class="block text-white hover:bg-red-700 px-4 py-2 rounded transition-colors">Admin Panel</a>
+                </div>
             </nav>
         </div>
     </header>
@@ -88,22 +99,35 @@ $kategoriList = $modelKategori->getAllCategories();
                 Platform blog modern dengan nuansa merah putih yang elegan. Temukan inspirasi dan berbagi cerita terbaik Anda.
             </p>
             
-            <!-- Kotak Pencarian Modern -->
-            <div class="max-w-2xl mx-auto">
+            <!-- Kotak Pencarian Modern & Responsif -->
+            <div class="max-w-2xl mx-auto px-4">
                 <form method="GET" action="/beranda.php" class="relative">
                     <input 
                         type="text" 
                         name="pencarian" 
-                        class="w-full px-8 py-4 rounded-full text-lg border-0 shadow-2xl focus:ring-4 focus:ring-red-200 focus:outline-none"
+                        id="search-input"
+                        class="w-full px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg border-0 shadow-2xl focus:ring-4 focus:ring-red-200 focus:outline-none"
                         placeholder="Cari artikel menarik..." 
                         value="<?php echo htmlspecialchars($pencarian); ?>"
+                        autocomplete="off"
                     >
-                    <button type="submit" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-merah-utama text-white px-8 py-2 rounded-full hover:bg-merah-gelap transition-all">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button type="submit" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-merah-utama text-white px-4 md:px-8 py-2 rounded-full hover:bg-merah-gelap transition-all">
+                        <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
+                        <span class="hidden md:inline ml-2">Cari</span>
                     </button>
                 </form>
+                
+                <!-- Search Suggestions (Live Search) -->
+                <div id="search-suggestions" class="hidden absolute top-full left-0 right-0 bg-white rounded-xl shadow-2xl mt-2 border border-gray-200 z-50">
+                    <div class="p-4">
+                        <div class="text-sm text-gray-600 mb-2">Hasil pencarian:</div>
+                        <div id="suggestion-results" class="space-y-2">
+                            <!-- Live search results akan dimuat di sini -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -234,15 +258,126 @@ $kategoriList = $modelKategori->getAllCategories();
     </footer>
 
     <script>
-        // Script untuk animasi smooth scroll dan efek interaktif
+        // Script untuk fitur interaktif
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    
+                    // Animasi icon hamburger
+                    const icon = this.querySelector('svg');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+                    } else {
+                        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+                    }
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        mobileMenu.classList.add('hidden');
+                        const icon = mobileMenuButton.querySelector('svg');
+                        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+                    }
+                });
+            }
+            
+            // Live Search Functionality
+            const searchInput = document.getElementById('search-input');
+            const searchSuggestions = document.getElementById('search-suggestions');
+            const suggestionResults = document.getElementById('suggestion-results');
+            let searchTimeout;
+            
+            if (searchInput && searchSuggestions) {
+                // Position suggestions relative to search container
+                const searchContainer = searchInput.closest('.max-w-2xl');
+                if (searchContainer) {
+                    searchContainer.style.position = 'relative';
+                }
+                
+                searchInput.addEventListener('input', function() {
+                    const query = this.value.trim();
+                    
+                    clearTimeout(searchTimeout);
+                    
+                    if (query.length < 2) {
+                        searchSuggestions.classList.add('hidden');
+                        return;
+                    }
+                    
+                    // Debounce search
+                    searchTimeout = setTimeout(() => {
+                        performLiveSearch(query);
+                    }, 300);
+                });
+                
+                searchInput.addEventListener('focus', function() {
+                    if (this.value.trim().length >= 2) {
+                        searchSuggestions.classList.remove('hidden');
+                    }
+                });
+                
+                // Close suggestions when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!searchInput.contains(e.target) && !searchSuggestions.contains(e.target)) {
+                        searchSuggestions.classList.add('hidden');
+                    }
+                });
+            }
+            
+            // Live search function
+            function performLiveSearch(query) {
+                fetch(`/api/search.php?q=${encodeURIComponent(query)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        displaySearchSuggestions(data);
+                    })
+                    .catch(error => {
+                        console.error('Search error:', error);
+                    });
+            }
+            
+            function displaySearchSuggestions(results) {
+                if (!results || results.length === 0) {
+                    suggestionResults.innerHTML = '<div class="text-gray-500 text-sm py-2">Tidak ada hasil ditemukan</div>';
+                    searchSuggestions.classList.remove('hidden');
+                    return;
+                }
+                
+                const html = results.slice(0, 5).map(post => `
+                    <a href="artikel.php?slug=${encodeURIComponent(post.slug)}" 
+                       class="block p-3 hover:bg-gray-50 rounded-lg transition-colors border-l-4 border-merah-utama">
+                        <div class="font-medium text-gray-900 text-sm">${escapeHtml(post.title)}</div>
+                        <div class="text-gray-600 text-xs mt-1">${escapeHtml(post.excerpt || '').substring(0, 100)}...</div>
+                        ${post.category_name ? `<div class="inline-block bg-merah-muda text-merah-utama px-2 py-1 rounded text-xs mt-2">${escapeHtml(post.category_name)}</div>` : ''}
+                    </a>
+                `).join('');
+                
+                suggestionResults.innerHTML = html;
+                searchSuggestions.classList.remove('hidden');
+            }
+            
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
             // Smooth scroll untuk anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
 

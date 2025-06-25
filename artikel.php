@@ -2,7 +2,7 @@
 // Halaman detail artikel dengan sistem komentar
 // Menampilkan konten lengkap artikel dan form komentar
 
-require_once 'config/database_demo.php';
+require_once 'config/database_auto.php';
 require_once 'models/Post.php';
 require_once 'models/Comment.php';
 require_once 'models/Analytics.php';
@@ -104,11 +104,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['kirim_komentar'])) {
                 <a href="/beranda.php" class="text-3xl font-bold text-white hover:text-red-100 transition-colors">
                     Bloggua
                 </a>
-                <div class="flex items-center space-x-6">
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
                     <a href="/beranda.php" class="text-white hover:text-red-100 transition-colors font-medium">Beranda</a>
                     <a href="/admin/masuk.php" class="bg-white text-merah-utama px-6 py-2 rounded-full font-semibold hover:bg-red-50 transition-all">
                         Admin
                     </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-white hover:text-red-100 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </nav>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden bg-merah-gelap mt-4 rounded-lg overflow-hidden">
+                <div class="px-4 py-3 space-y-2">
+                    <a href="/beranda.php" class="block text-white hover:bg-red-700 px-4 py-2 rounded transition-colors">Beranda</a>
+                    <a href="/admin/masuk.php" class="block text-white hover:bg-red-700 px-4 py-2 rounded transition-colors">Admin Panel</a>
                 </div>
             </nav>
         </div>
@@ -258,6 +274,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['kirim_komentar'])) {
             </div>
         </section>
     </main>
+
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    
+                    // Animasi icon hamburger
+                    const icon = this.querySelector('svg');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+                    } else {
+                        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+                    }
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        mobileMenu.classList.add('hidden');
+                        const icon = mobileMenuButton.querySelector('svg');
+                        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+                    }
+                });
+            }
+        });
+    </script>
 
     <!-- Footer -->
     <footer class="bg-abu-900 text-white py-12 mt-16">

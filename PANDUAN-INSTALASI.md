@@ -14,6 +14,8 @@ Bloggua adalah sistem blog modern dengan desain merah putih yang elegant dan pro
 - ✅ Pagination yang smooth
 - ✅ Dashboard statistik dengan grafik interaktif
 - ✅ Analytics views artikel dan tracking pengunjung
+- ✅ Mobile responsive hamburger menu
+- ✅ Live search dengan auto-suggestions
 - ✅ Responsive design untuk semua perangkat
 - ✅ Keamanan tinggi dengan prepared statements
 - ✅ Session management dengan auto-logout
@@ -104,6 +106,8 @@ bloggua/
 ├── uploads/              # Directory upload gambar
 ├── database/            # Schema dan setup database
 │   └── schema.sql       # SQL schema lengkap
+├── api/                 # API endpoints
+│   └── search.php       # Live search API
 └── PANDUAN-INSTALASI.md # File ini
 ```
 

@@ -8,7 +8,7 @@ header('Access-Control-Allow-Origin: *');
 require_once '../../config/session.php';
 requireLogin();
 
-require_once '../../config/database_demo.php';
+require_once '../../config/database_auto.php';
 require_once '../../models/Analytics.php';
 
 $analytics = new Analytics();
