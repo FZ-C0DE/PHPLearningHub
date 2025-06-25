@@ -2,20 +2,21 @@
 
 ## Overview
 
-Bloggua is a complete PHP blog system with MySQL database, featuring a red and white themed design. The project includes a full-featured admin panel with CRUD operations for posts, categories, and comments management. Built with security best practices including prepared statements, password hashing, and input validation.
+Bloggua adalah sistem blog PHP lengkap dengan database MySQL dan desain modern menggunakan Tailwind CSS. Sistem ini memiliki nuansa merah putih yang elegan dan profesional, dengan panel admin yang komprehensif untuk operasi CRUD pada post, kategori, dan komentar. Dibangun dengan praktik keamanan terbaik termasuk prepared statements, password hashing, dan validasi input. Semua komentar kode dan penamaan file menggunakan bahasa Indonesia sesuai permintaan pengguna.
 
 ## System Architecture
 
 ### Current Architecture
-- **Frontend**: Responsive blog interface with red/white theme
-- **Backend**: PHP 8.2 with MVC-style architecture
-- **Database**: MySQL with structured schema for posts, categories, comments, and admin users
-- **Web Server**: PHP built-in development server on port 5000
-- **Admin Panel**: Complete dashboard with authentication and content management
+- **Frontend**: Interface blog responsif dengan tema merah/putih menggunakan Tailwind CSS
+- **Backend**: PHP 8.2 dengan arsitektur bergaya MVC dan komentar bahasa Indonesia
+- **Database**: MySQL dengan skema terstruktur untuk posts, categories, comments, dan admin users
+- **Web Server**: PHP built-in development server pada port 5000
+- **Admin Panel**: Dashboard lengkap dengan autentikasi dan manajemen konten
 
 ### Technology Stack
-- PHP 8.2 (main backend language)
-- MySQL (database with PDO connections)
+- PHP 8.2 (bahasa backend utama)
+- MySQL (database dengan koneksi PDO)
+- Tailwind CSS via CDN (styling modern)
 - HTML5/CSS3/JavaScript (frontend)
 - Security: PDO prepared statements, password hashing, session management
 
@@ -27,13 +28,21 @@ Bloggua is a complete PHP blog system with MySQL database, featuring a red and w
 - **Workflow**: Automated PHP server startup
 
 ### File Structure
-- `index.php`: Main blog homepage with post listing and search
-- `post.php`: Single post page with comments system
-- `admin/`: Complete admin panel with dashboard, CRUD operations
-- `models/`: Database models (Post, Category, Comment)
-- `config/`: Database and session configuration
-- `assets/`: CSS/JS files for frontend and admin styling
-- `uploads/`: Image upload directory with security restrictions
+- `beranda.php`: Halaman utama blog dengan daftar post dan pencarian (desain modern)
+- `artikel.php`: Halaman detail artikel dengan sistem komentar
+- `index.php`: Redirect ke beranda.php untuk kompatibilitas
+- `admin/`: Panel admin lengkap dengan penamaan file bahasa Indonesia
+  - `masuk.php`: Halaman login admin
+  - `dasbor.php`: Dashboard admin
+  - `kelola-post.php`: Manajemen semua post
+  - `buat-post.php`: Form membuat post baru
+  - `edit-post.php`: Form edit post
+  - `kelola-kategori.php`: Manajemen kategori
+  - `moderasi-komentar.php`: Moderasi komentar
+- `models/`: Model database (Post, Category, Comment) dengan komentar Indonesia
+- `config/`: Konfigurasi database dan session
+- `assets/`: File CSS/JS dengan desain modern menggunakan Tailwind CSS
+- `uploads/`: Direktori upload gambar dengan pembatasan keamanan
 
 ## Data Flow
 
@@ -75,40 +84,53 @@ Complete blog system with database integration:
 
 ```
 Changelog:
-- June 25, 2025: Complete Bloggua blog system implemented
-  - Full PHP blog with red/white theme
-  - MySQL database with posts, categories, comments
-  - Admin panel with CRUD operations
-  - Security features: prepared statements, password hashing
-  - Image upload system with validation
-  - Responsive design for mobile/desktop
-  - Search functionality and pagination
-  - Comment moderation system
+- June 25, 2025: Sistem blog Bloggua lengkap dengan desain modern
+  - Blog PHP dengan tema merah putih menggunakan Tailwind CSS
+  - Database MySQL dengan posts, categories, comments
+  - Panel admin dengan operasi CRUD dan penamaan Indonesia
+  - Fitur keamanan: prepared statements, password hashing
+  - Sistem upload gambar dengan validasi
+  - Desain responsif untuk mobile/desktop
+  - Fungsi pencarian dan pagination
+  - Sistem moderasi komentar
+  - Semua komentar kode dan nama file dalam bahasa Indonesia
+  - Tampilan modern, elegant, dan profesional
 ```
 
 ## User Preferences
 
 ```
 Preferred communication style: Simple, everyday language.
-Project requirements: PHP and MySQL only (for local deployment, not Replit)
+Project requirements: 
+- PHP dan MySQL saja (untuk deployment lokal, bukan Replit)
+- Desain tidak kaku dan kuno, harus modern elegant profesional
+- Gunakan Tailwind CSS via CDN
+- Semua komentar kode dalam bahasa Indonesia
+- Penamaan file menggunakan bahasa Indonesia
+- Tampilan website modern dan profesional
 ```
 
 ## Development Notes
 
 ### Completed Features
-1. ✅ Complete PHP blog system with MVC architecture
-2. ✅ MySQL database with full schema and relationships
-3. ✅ Admin authentication and session management
-4. ✅ CRUD operations for posts, categories, comments
-5. ✅ Image upload system with security validation
-6. ✅ Responsive red/white themed design
-7. ✅ Search functionality and pagination
-8. ✅ Comment moderation system
-9. ✅ Security measures (prepared statements, password hashing)
+1. ✅ Sistem blog PHP lengkap dengan arsitektur MVC dan komentar Indonesia
+2. ✅ Database MySQL dengan skema penuh dan relasi
+3. ✅ Autentikasi admin dan manajemen session
+4. ✅ Operasi CRUD untuk posts, kategori, komentar
+5. ✅ Sistem upload gambar dengan validasi keamanan
+6. ✅ Desain responsif tema merah/putih modern dengan Tailwind CSS
+7. ✅ Fungsi pencarian dan pagination
+8. ✅ Sistem moderasi komentar
+9. ✅ Langkah-langkah keamanan (prepared statements, password hashing)
+10. ✅ Tampilan modern, elegant, dan profesional
+11. ✅ Penamaan file dan komentar dalam bahasa Indonesia
+12. ✅ Interface admin yang user-friendly dengan animasi modern
 
 ### Architecture Decisions
-- **PHP Server**: PHP built-in server for development, designed for local LAMP deployment
-- **MySQL Database**: Structured relational database with proper foreign keys
-- **MVC Pattern**: Models for data access, separation of concerns
-- **Security First**: All inputs sanitized, prepared statements used throughout
-- **Local Deployment**: Optimized for user's local computer environment
+- **PHP Server**: PHP built-in server untuk development, dirancang untuk deployment LAMP lokal
+- **MySQL Database**: Database relasional terstruktur dengan foreign keys yang tepat
+- **MVC Pattern**: Model untuk akses data, pemisahan concerns
+- **Security First**: Semua input disanitasi, prepared statements digunakan di seluruh sistem
+- **Local Deployment**: Dioptimalkan untuk lingkungan komputer lokal pengguna
+- **Modern Design**: Menggunakan Tailwind CSS untuk tampilan yang tidak kaku dan profesional
+- **Indonesian Naming**: Semua file dan komentar menggunakan bahasa Indonesia sesuai permintaan
