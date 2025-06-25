@@ -2,8 +2,10 @@
 // Halaman untuk membuat post baru
 // Form lengkap dengan editor, upload gambar, dan pilihan kategori
 
-require_once '../config/session.php';
-requireLogin();
+session_start();
+if (!isAdminLoggedIn()) {
+    redirect('masuk.php');
+}
 
 require_once '../config/database.php';
 require_once '../models/Post.php';

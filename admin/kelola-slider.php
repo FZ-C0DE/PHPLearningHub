@@ -1,10 +1,13 @@
 <?php
+session_start();
 require_once '../config/database.php';
-require_once '../config/session.php';
-require_once 'includes/functions.php';
+require_once '../includes/functions.php';
+require_once '../models/Slider.php';
 
-// Cek apakah admin sudah login
-requireAdminLogin();
+// Periksa apakah admin sudah login
+if (!isAdminLoggedIn()) {
+    redirect('masuk.php');
+}
 
 $db = Database::getInstance()->getConnection();
 

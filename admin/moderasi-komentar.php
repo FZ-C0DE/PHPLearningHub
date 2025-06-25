@@ -2,8 +2,10 @@
 // Halaman untuk moderasi komentar blog
 // Fitur: approve, reject, delete komentar dengan bulk actions
 
-require_once '../config/session.php';
-requireLogin();
+session_start();
+if (!isAdminLoggedIn()) {
+    redirect('masuk.php');
+}
 
 require_once '../config/database.php';
 require_once '../models/Comment.php';

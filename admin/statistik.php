@@ -2,8 +2,10 @@
 // Halaman dashboard statistik dengan grafik interaktif
 // Menampilkan analytics views, post populer, trend, dan kategori
 
-require_once '../config/session.php';
-requireLogin();
+session_start();
+if (!isAdminLoggedIn()) {
+    redirect('masuk.php');
+}
 
 require_once '../config/database.php';
 require_once '../models/Analytics.php';

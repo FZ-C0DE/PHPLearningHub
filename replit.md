@@ -108,6 +108,8 @@ Changelog:
   - File admin menggunakan penamaan Indonesia (dasbor.php, kelola-post.php, dll)
   - Semua komentar kode dan nama file dalam bahasa Indonesia
   - Tampilan modern, elegant, dan profesional tanpa referensi demo
+  - Memperbaiki error requireAdminLogin() dan konsistensi sidebar admin
+  - Menghapus dependency session.php dan menggunakan session_start() langsung
 ```
 
 ## User Preferences

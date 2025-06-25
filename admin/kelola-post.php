@@ -2,8 +2,10 @@
 // Halaman untuk mengelola semua post blog
 // Fitur: tampilkan, edit, hapus, dan pencarian post
 
-require_once '../config/session.php';
-requireLogin();
+session_start();
+if (!isAdminLoggedIn()) {
+    redirect('masuk.php');
+}
 
 require_once '../config/database.php';
 require_once '../models/Post.php';
@@ -67,7 +69,7 @@ $totalHalaman = ceil($totalPost / $postPerHalaman);
 <body class="bg-gray-50">
     <div class="flex min-h-screen">
         <!-- Sidebar -->
-        <?php include 'includes/sidebar-modern.php'; ?>
+        <?php include 'includes/sidebar.php'; ?>
         
         <!-- Konten Utama -->
         <main class="flex-1 ml-64 overflow-hidden">

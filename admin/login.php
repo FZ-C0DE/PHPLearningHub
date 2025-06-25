@@ -1,11 +1,12 @@
 <?php
-require_once '../config/session.php';
+session_start();
 require_once '../config/database.php';
 require_once '../includes/functions.php';
 
-// Redirect if already logged in
-if (isLoggedIn()) {
-    redirect('/admin/dashboard.php');
+// Redirect if already logged in  
+if (isAdminLoggedIn()) {
+    header('Location: dasbor.php');
+    exit();
 }
 
 $error = '';
@@ -31,7 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['admin_username'] = $user['username'];
                 $_SESSION['last_activity'] = time();
                 
-                redirect('dasbor.php');
+                header('Location: dasbor.php');
+                exit();
             } else {
                 $error = 'Username atau password salah.';
             }
