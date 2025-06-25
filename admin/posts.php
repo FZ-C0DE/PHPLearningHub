@@ -2,7 +2,7 @@
 require_once '../config/session.php';
 requireLogin();
 
-require_once '../config/database_demo.php';
+require_once '../config/database.php';
 require_once '../models/Post.php';
 require_once '../includes/functions.php';
 
@@ -16,7 +16,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id'])
     } else {
         showAlert('Gagal menghapus post.', 'error');
     }
-    redirect('/admin/posts.php');
+    redirect('posts.php');
 }
 
 // Pagination
@@ -93,7 +93,7 @@ $totalPages = ceil($totalPosts / $postsPerPage);
                                             <td class="table-actions">
                                                 <div class="btn-group">
                                                     <a href="post_edit.php?id=<?php echo $post['id']; ?>" class="btn btn-sm btn-warning">Edit</a>
-                                                    <a href="../post.php?slug=<?php echo urlencode($post['slug']); ?>" class="btn btn-sm btn-success" target="_blank">Lihat</a>
+                                                    <a href="../artikel.php?slug=<?php echo urlencode($post['slug']); ?>" class="btn btn-sm btn-success" target="_blank">Lihat</a>
                                                     <a href="posts.php?action=delete&id=<?php echo $post['id']; ?>" 
                                                        class="btn btn-sm btn-danger"
                                                        onclick="return confirm('Apakah Anda yakin ingin menghapus post ini?')">Hapus</a>

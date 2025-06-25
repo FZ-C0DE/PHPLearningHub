@@ -2,7 +2,7 @@
 require_once '../config/session.php';
 requireLogin();
 
-require_once '../config/database_demo.php';
+require_once '../config/database.php';
 require_once '../models/Post.php';
 require_once '../models/Category.php';
 require_once '../includes/functions.php';
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if ($postModel->createPost($formData)) {
             showAlert('Post berhasil dibuat.', 'success');
-            redirect('/admin/posts.php');
+            redirect('posts.php');
         } else {
             $errors[] = 'Gagal menyimpan post.';
         }

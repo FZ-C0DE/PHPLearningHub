@@ -2,7 +2,7 @@
 require_once '../config/session.php';
 requireLogin();
 
-require_once '../config/database_demo.php';
+require_once '../config/database.php';
 require_once '../models/Post.php';
 require_once '../models/Category.php';
 require_once '../models/Comment.php';
@@ -109,7 +109,7 @@ $recentPosts = $postModel->getAllPostsAdmin(5, 0);
                                             <td><?php echo formatDate($post['created_at']); ?></td>
                                             <td class="table-actions">
                                                 <a href="post_edit.php?id=<?php echo $post['id']; ?>" class="btn btn-sm btn-warning">Edit</a>
-                                                <a href="../post.php?slug=<?php echo urlencode($post['slug']); ?>" class="btn btn-sm btn-success" target="_blank">Lihat</a>
+                                                <a href="../artikel.php?slug=<?php echo urlencode($post['slug']); ?>" class="btn btn-sm btn-success" target="_blank">Lihat</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -134,7 +134,7 @@ $recentPosts = $postModel->getAllPostsAdmin(5, 0);
                         <a href="post_create.php" class="btn btn-primary">Buat Post Baru</a>
                         <a href="categories.php" class="btn btn-success">Kelola Kategori</a>
                         <a href="comments.php" class="btn btn-warning">Moderasi Komentar</a>
-                        <a href="../" class="btn btn-secondary" target="_blank">Lihat Blog</a>
+                        <a href="../beranda.php" class="btn btn-secondary" target="_blank">Lihat Blog</a>
                     </div>
                 </div>
             </div>

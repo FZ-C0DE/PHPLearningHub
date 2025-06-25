@@ -65,8 +65,8 @@ $kategoriList = $modelKategori->getAllCategories();
                 </a>
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="/beranda.php" class="text-white hover:text-red-100 transition-colors font-medium">Beranda</a>
-                    <a href="/admin/masuk.php" class="bg-white text-merah-utama px-6 py-2 rounded-full font-semibold hover:bg-red-50 transition-all transform hover:scale-105">
+                    <a href="beranda.php" class="text-white hover:text-red-100 transition-colors font-medium">Beranda</a>
+                    <a href="admin/masuk.php" class="bg-white text-merah-utama px-6 py-2 rounded-full font-semibold hover:bg-red-50 transition-all transform hover:scale-105">
                         Admin
                     </a>
                 </div>
@@ -82,8 +82,8 @@ $kategoriList = $modelKategori->getAllCategories();
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="md:hidden hidden bg-merah-gelap mt-4 rounded-lg overflow-hidden">
                 <div class="px-4 py-3 space-y-2">
-                    <a href="/beranda.php" class="block text-white hover:bg-red-700 px-4 py-2 rounded transition-colors">Beranda</a>
-                    <a href="/admin/masuk.php" class="block text-white hover:bg-red-700 px-4 py-2 rounded transition-colors">Admin Panel</a>
+                    <a href="beranda.php" class="block text-white hover:bg-red-700 px-4 py-2 rounded transition-colors">Beranda</a>
+                    <a href="admin/masuk.php" class="block text-white hover:bg-red-700 px-4 py-2 rounded transition-colors">Admin Panel</a>
                 </div>
             </nav>
         </div>
@@ -101,7 +101,7 @@ $kategoriList = $modelKategori->getAllCategories();
             
             <!-- Kotak Pencarian Modern & Responsif -->
             <div class="max-w-2xl mx-auto px-4">
-                <form method="GET" action="/beranda.php" class="relative">
+                <form method="GET" action="beranda.php" class="relative">
                     <input 
                         type="text" 
                         name="pencarian" 
@@ -332,7 +332,7 @@ $kategoriList = $modelKategori->getAllCategories();
             
             // Live search function
             function performLiveSearch(query) {
-                fetch(`/api/search.php?q=${encodeURIComponent(query)}`)
+                fetch(`api/search.php?q=${encodeURIComponent(query)}`)
                     .then(response => response.json())
                     .then(data => {
                         displaySearchSuggestions(data);

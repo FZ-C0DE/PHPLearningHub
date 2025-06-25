@@ -101,13 +101,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['kirim_komentar'])) {
     <header class="gradient-bg shadow-2xl">
         <div class="container mx-auto px-6 py-4">
             <nav class="flex items-center justify-between">
-                <a href="/beranda.php" class="text-3xl font-bold text-white hover:text-red-100 transition-colors">
+                <a href="beranda.php" class="text-3xl font-bold text-white hover:text-red-100 transition-colors">
                     Bloggua
                 </a>
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="/beranda.php" class="text-white hover:text-red-100 transition-colors font-medium">Beranda</a>
-                    <a href="/admin/masuk.php" class="bg-white text-merah-utama px-6 py-2 rounded-full font-semibold hover:bg-red-50 transition-all">
+                    <a href="beranda.php" class="text-white hover:text-red-100 transition-colors font-medium">Beranda</a>
+                    <a href="admin/masuk.php" class="bg-white text-merah-utama px-6 py-2 rounded-full font-semibold hover:bg-red-50 transition-all">
                         Admin
                     </a>
                 </div>
@@ -123,8 +123,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['kirim_komentar'])) {
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="md:hidden hidden bg-merah-gelap mt-4 rounded-lg overflow-hidden">
                 <div class="px-4 py-3 space-y-2">
-                    <a href="/beranda.php" class="block text-white hover:bg-red-700 px-4 py-2 rounded transition-colors">Beranda</a>
-                    <a href="/admin/masuk.php" class="block text-white hover:bg-red-700 px-4 py-2 rounded transition-colors">Admin Panel</a>
+                    <a href="beranda.php" class="block text-white hover:bg-red-700 px-4 py-2 rounded transition-colors">Beranda</a>
+                    <a href="admin/masuk.php" class="block text-white hover:bg-red-700 px-4 py-2 rounded transition-colors">Admin Panel</a>
                 </div>
             </nav>
         </div>

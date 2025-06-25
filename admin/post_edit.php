@@ -2,7 +2,7 @@
 require_once '../config/session.php';
 requireLogin();
 
-require_once '../config/database_demo.php';
+require_once '../config/database.php';
 require_once '../models/Post.php';
 require_once '../models/Category.php';
 require_once '../includes/functions.php';
@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if ($postModel->updatePost($id, $formData)) {
             showAlert('Post berhasil diupdate.', 'success');
-            redirect('/admin/posts.php');
+            redirect('posts.php');
         } else {
             $errors[] = 'Gagal mengupdate post.';
         }
@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="content-header">
                 <h1 class="page-title">Edit Post</h1>
                 <div class="btn-group">
-                    <a href="../post.php?slug=<?php echo urlencode($post['slug']); ?>" class="btn btn-success" target="_blank">Lihat Post</a>
+                    <a href="../artikel.php?slug=<?php echo urlencode($post['slug']); ?>" class="btn btn-success" target="_blank">Lihat Post</a>
                     <a href="posts.php" class="btn btn-secondary">← Kembali</a>
                 </div>
             </div>

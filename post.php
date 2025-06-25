@@ -1,5 +1,5 @@
 <?php
-require_once 'config/database_demo.php';
+require_once 'config/database.php';
 require_once 'models/Post.php';
 require_once 'models/Comment.php';
 require_once 'includes/functions.php';

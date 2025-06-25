@@ -2,7 +2,7 @@
 require_once '../config/session.php';
 requireLogin();
 
-require_once '../config/database_demo.php';
+require_once '../config/database.php';
 require_once '../models/Comment.php';
 require_once '../includes/functions.php';
 
@@ -39,7 +39,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
             break;
     }
     
-    redirect('/admin/comments.php');
+    redirect('comments.php');
 }
 
 // Pagination
@@ -113,7 +113,7 @@ $pendingCount = $commentModel->getPendingCommentsCount();
                                                 </div>
                                             </td>
                                             <td>
-                                                <a href="../post.php?slug=<?php echo urlencode($comment['post_slug'] ?? '#'); ?>" 
+                                                <a href="../artikel.php?slug=<?php echo urlencode($comment['post_slug'] ?? '#'); ?>" 
                                                    target="_blank" 
                                                    style="color: var(--primary-red);">
                                                     <?php echo htmlspecialchars(truncateText($comment['post_title'], 30)); ?>

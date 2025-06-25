@@ -1,6 +1,6 @@
 <?php
 require_once '../config/session.php';
-require_once '../config/database_demo.php';
+require_once '../config/database.php';
 require_once '../includes/functions.php';
 
 // Redirect if already logged in
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['admin_username'] = $user['username'];
                 $_SESSION['last_activity'] = time();
                 
-                redirect('/admin/dashboard.php');
+                redirect('dashboard.php');
             } else {
                 $error = 'Username atau password salah.';
             }
@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p style="color: var(--gray-600); font-size: 0.9rem;">
                     Demo: username = <strong>admin</strong>, password = <strong>password</strong>
                 </p>
-                <a href="/" style="color: var(--primary-red); text-decoration: none;">
+                <a href="../beranda.php" style="color: var(--primary-red); text-decoration: none;">
                     ← Kembali ke Blog
                 </a>
             </div>
