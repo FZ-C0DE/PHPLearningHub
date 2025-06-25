@@ -2,7 +2,7 @@
 // Widget mini statistik untuk dashboard utama
 // Menampilkan ringkasan analytics dalam bentuk kompak
 
-require_once '../config/database_auto.php';
+require_once '../config/database.php';
 require_once '../models/Analytics.php';
 
 $analytics = new Analytics();

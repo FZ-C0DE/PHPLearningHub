@@ -3,7 +3,7 @@
 // Proses autentikasi untuk masuk ke panel admin
 
 require_once '../config/session.php';
-require_once '../config/database_auto.php';
+require_once '../config/database.php';
 require_once '../includes/functions.php';
 
 // Redirect jika sudah login

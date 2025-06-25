@@ -109,12 +109,13 @@ Changelog:
 ```
 Preferred communication style: Simple, everyday language.
 Project requirements: 
-- PHP dan MySQL saja (untuk deployment lokal, bukan Replit)
+- PHP dan MySQL saja untuk komputer lokal (XAMPP/LAMP)
 - Desain tidak kaku dan kuno, harus modern elegant profesional
 - Gunakan Tailwind CSS via CDN
 - Semua komentar kode dalam bahasa Indonesia
 - Penamaan file menggunakan bahasa Indonesia
 - Tampilan website modern dan profesional
+- Tidak butuh demo Replit, fokus deployment lokal saja
 ```
 
 ## Development Notes
@@ -144,8 +145,8 @@ Project requirements:
 - **MySQL Database**: Database relasional terstruktur dengan foreign keys yang tepat
 - **MVC Pattern**: Model untuk akses data, pemisahan concerns
 - **Security First**: Semua input disanitasi, prepared statements digunakan di seluruh sistem
-- **Local Deployment**: Dioptimalkan untuk lingkungan komputer lokal pengguna
-- **Modern Design**: Menggunakan Tailwind CSS untuk tampilan yang tidak kaku dan profesional
+- **Local Deployment**: Dioptimalkan khusus untuk lingkungan XAMPP/LAMP lokal
+- **Modern Design**: Menggunakan Tailwind CSS untuk tampilan yang tidak kaku dan profesional  
 - **Indonesian Naming**: Semua file dan komentar menggunakan bahasa Indonesia sesuai permintaan
 - **Database Name**: Menggunakan nama database "db_blog" untuk deployment MySQL lokal
-- **Auto Database Detection**: SQLite untuk demo/development, MySQL untuk production lokal
+- **Pure MySQL**: Hanya menggunakan MySQL, tidak ada SQLite atau database lainnya

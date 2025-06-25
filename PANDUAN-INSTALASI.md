@@ -1,7 +1,7 @@
 # Panduan Instalasi Bloggua - Blog Modern PHP MySQL
 
 ## Deskripsi Sistem
-Bloggua adalah sistem blog modern dengan desain merah putih yang elegant dan profesional. Sistem ini dibangun dengan PHP dan MySQL, menggunakan Tailwind CSS untuk tampilan yang modern dan responsif.
+Bloggua adalah sistem blog modern dengan desain merah putih yang elegant dan profesional. Sistem ini dibangun khusus untuk deployment lokal dengan PHP dan MySQL, menggunakan Tailwind CSS untuk tampilan yang modern dan responsif.
 
 ## Fitur Utama
 - ✅ Desain modern, elegant, dan profesional dengan Tailwind CSS
@@ -24,15 +24,17 @@ Bloggua adalah sistem blog modern dengan desain merah putih yang elegant dan pro
 ## Persyaratan Sistem
 - PHP 8.2 atau lebih tinggi
 - MySQL 8.0 atau MariaDB 10.4+
-- Web server (Apache/Nginx) atau PHP built-in server
+- XAMPP/LAMP/WAMP atau web server lainnya
 - Ekstensi PHP: PDO MySQL, GD/Imagick untuk upload gambar
 
 ## Langkah Instalasi
 
 ### 1. Download dan Extract
 ```bash
-# Download semua file project ke direktori web server
-# Contoh: C:\xampp\htdocs\bloggua atau /var/www/html/bloggua
+# Extract semua file project ke direktori web server
+# Windows (XAMPP): C:\xampp\htdocs\bloggua
+# Linux (LAMP): /var/www/html/bloggua
+# Mac (MAMP): /Applications/MAMP/htdocs/bloggua
 ```
 
 ### 2. Setup Database MySQL
@@ -66,6 +68,7 @@ chmod 755 uploads/
 - Atau jalankan: `mysql -u root -p db_blog < database/schema.sql`
 
 ### 6. Akses Website
+- **Nyalakan XAMPP/LAMP**: Start Apache dan MySQL
 - **Blog Utama**: `http://localhost/bloggua/beranda.php`
 - **Admin Panel**: `http://localhost/bloggua/admin/masuk.php`
 - **Login Admin**: 

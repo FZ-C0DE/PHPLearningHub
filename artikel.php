@@ -2,7 +2,7 @@
 // Halaman detail artikel dengan sistem komentar
 // Menampilkan konten lengkap artikel dan form komentar
 
-require_once 'config/database_auto.php';
+require_once 'config/database.php';
 require_once 'models/Post.php';
 require_once 'models/Comment.php';
 require_once 'models/Analytics.php';

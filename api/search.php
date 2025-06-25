@@ -5,7 +5,7 @@
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
-require_once '../config/database_auto.php';
+require_once '../config/database.php';
 require_once '../includes/functions.php';
 
 $query = isset($_GET['q']) ? sanitizeInput($_GET['q']) : '';

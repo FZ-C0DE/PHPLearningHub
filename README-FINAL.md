@@ -38,23 +38,19 @@ Tabel utama:
 
 ## Quick Start
 
-1. **Setup Database**
-```sql
-CREATE DATABASE db_blog CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-```
+1. **Install XAMPP/LAMP**
+Download dan install XAMPP, LAMP, atau WAMP
 
-2. **Import Schema**
-```bash
-mysql -u root -p db_blog < database/schema.sql
-```
+2. **Extract File**
+Extract semua file ke `htdocs/bloggua` atau `/var/www/html/bloggua`
 
-3. **Konfigurasi Database**
-Edit `config/database.php`:
-```php
-define('DB_NAME', 'db_blog');
-```
+3. **Setup Database**
+- Buka phpMyAdmin
+- Buat database: `db_blog`
+- Import file: `database/schema.sql`
 
 4. **Akses Website**
+- Start Apache & MySQL di XAMPP
 - Blog: `http://localhost/bloggua/beranda.php`
 - Admin: `http://localhost/bloggua/admin/masuk.php`
 - Login: `admin` / `password`
@@ -67,7 +63,7 @@ define('DB_NAME', 'db_blog');
 - **Upload**: Validasi file dengan GD extension
 
 ## Deployment
-Sistem ini dirancang khusus untuk deployment lokal (XAMPP/LAMP) dengan MySQL. Semua konfigurasi sudah dioptimalkan untuk lingkungan development dan production lokal.
+Sistem ini dirancang khusus untuk deployment lokal dengan XAMPP/LAMP/WAMP dan MySQL. Tidak memerlukan setup cloud atau hosting external - semua berjalan di komputer lokal Anda.
 
 ---
 © 2025 Bloggua - Blog Modern Nuansa Merah Putih
