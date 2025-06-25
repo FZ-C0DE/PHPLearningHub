@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if ($postModel->createPost($formData)) {
             showAlert('Post berhasil dibuat.', 'success');
-            redirect('posts.php');
+            redirect('kelola-post.php');
         } else {
             $errors[] = 'Gagal menyimpan post.';
         }

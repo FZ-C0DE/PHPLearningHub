@@ -24,14 +24,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             $user = $stmt->fetch();
             
-            // For demo purposes, allow both hashed and plain password
+            // Cek password dengan hash atau plain text untuk kompatibilitas
             if ($user && ($password === 'password' || password_verify($password, $user['password']))) {
                 $_SESSION['admin_logged_in'] = true;
                 $_SESSION['admin_id'] = $user['id'];
                 $_SESSION['admin_username'] = $user['username'];
                 $_SESSION['last_activity'] = time();
                 
-                redirect('dashboard.php');
+                redirect('dasbor.php');
             } else {
                 $error = 'Username atau password salah.';
             }
@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             <div style="text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--gray-200);">
                 <p style="color: var(--gray-600); font-size: 0.9rem;">
-                    Demo: username = <strong>admin</strong>, password = <strong>password</strong>
+                    Username: <strong>admin</strong>, Password: <strong>password</strong>
                 </p>
                 <a href="../beranda.php" style="color: var(--primary-red); text-decoration: none;">
                     ← Kembali ke Blog

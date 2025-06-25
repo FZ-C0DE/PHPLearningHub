@@ -89,7 +89,7 @@ $kategoriList = $modelKategori->getAllCategories();
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Slider Section -->
     <section class="gradient-bg py-20">
         <div class="container mx-auto px-6 text-center">
             <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
@@ -404,6 +404,46 @@ $kategoriList = $modelKategori->getAllCategories();
                 observer.observe(card);
             });
         });
+        
+        // Hero Slider functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.slide-indicator');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            if (slides[currentSlide]) slides[currentSlide].classList.remove('active');
+            if (indicators[currentSlide]) indicators[currentSlide].classList.remove('active');
+            
+            currentSlide = (n + totalSlides) % totalSlides;
+            
+            if (slides[currentSlide]) slides[currentSlide].classList.add('active');
+            if (indicators[currentSlide]) indicators[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Auto slide (only if more than 1 slide)
+        if (totalSlides > 1) {
+            setInterval(nextSlide, 5000);
+            
+            // Navigation event listeners
+            const nextBtn = document.getElementById('next-slide');
+            const prevBtn = document.getElementById('prev-slide');
+            if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+            if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+            
+            // Indicator event listeners
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => showSlide(index));
+            });
+        }
     </script>
 </body>
 </html>

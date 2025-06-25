@@ -39,7 +39,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
             break;
     }
     
-    redirect('comments.php');
+    redirect('moderasi-komentar.php');
 }
 
 // Pagination

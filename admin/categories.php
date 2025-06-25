@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             showAlert('Nama kategori harus diisi.', 'error');
         }
-        redirect('/admin/categories.php');
+        redirect('kelola-kategori.php');
     }
     
     if (isset($_POST['action']) && $_POST['action'] === 'update') {
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             showAlert('Nama kategori harus diisi.', 'error');
         }
-        redirect('/admin/categories.php');
+        redirect('kelola-kategori.php');
     }
 }
 
@@ -59,7 +59,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id'])
     } else {
         showAlert('Gagal menghapus kategori. Pastikan tidak ada post yang menggunakan kategori ini.', 'error');
     }
-    redirect('/admin/categories.php');
+    redirect('kelola-kategori.php');
 }
 
 $categories = $categoryModel->getAllCategories();

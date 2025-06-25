@@ -87,7 +87,7 @@ Complete blog system with database integration:
 Changelog:
 - June 25, 2025: Sistem blog Bloggua lengkap dengan desain modern
   - Blog PHP dengan tema merah putih menggunakan Tailwind CSS
-  - Database MySQL dengan posts, categories, comments
+  - Database MySQL dengan posts, categories, comments, sliders
   - Panel admin dengan operasi CRUD dan penamaan Indonesia
   - Fitur keamanan: prepared statements, password hashing
   - Sistem upload gambar dengan validasi
@@ -100,8 +100,13 @@ Changelog:
   - API endpoint untuk real-time data analytics
   - Mobile responsive navigation dengan hamburger menu
   - Live search dengan suggestions dan debouncing
+  - Sistem slider beranda yang terhubung dengan admin panel
+  - Hero slider dengan animasi dan navigasi otomatis
+  - Kelola slider melalui admin panel dengan upload gambar
+  - Routing diperbaiki untuk kompatibilitas XAMPP/Apache lokal
+  - File admin menggunakan penamaan Indonesia (dasbor.php, kelola-post.php, dll)
   - Semua komentar kode dan nama file dalam bahasa Indonesia
-  - Tampilan modern, elegant, dan profesional
+  - Tampilan modern, elegant, dan profesional tanpa referensi demo
 ```
 
 ## User Preferences

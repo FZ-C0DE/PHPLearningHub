@@ -16,7 +16,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id'])
     } else {
         showAlert('Gagal menghapus post.', 'error');
     }
-    redirect('posts.php');
+    redirect('kelola-post.php');
 }
 
 // Pagination
@@ -94,7 +94,7 @@ $totalPages = ceil($totalPosts / $postsPerPage);
                                                 <div class="btn-group">
                                                     <a href="post_edit.php?id=<?php echo $post['id']; ?>" class="btn btn-sm btn-warning">Edit</a>
                                                     <a href="../artikel.php?slug=<?php echo urlencode($post['slug']); ?>" class="btn btn-sm btn-success" target="_blank">Lihat</a>
-                                                    <a href="posts.php?action=delete&id=<?php echo $post['id']; ?>" 
+                                                    <a href="kelola-post.php?action=delete&id=<?php echo $post['id']; ?>" 
                                                        class="btn btn-sm btn-danger"
                                                        onclick="return confirm('Apakah Anda yakin ingin menghapus post ini?')">Hapus</a>
                                                 </div>
